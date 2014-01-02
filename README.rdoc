@@ -1,7 +1,9 @@
 == README
 
 changes to be made
--add faye channel to strike a task and wait for clear
+
+-add faye channel to strike and edit a task and wait for clear
+
 -sortable for categories
 
 ----
