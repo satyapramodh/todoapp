@@ -1,0 +1,3 @@
+
+
+<%= link_to "Delete", task, :action => "destroy", :controller => "tasks",:method => :delete , :remote => true %> 

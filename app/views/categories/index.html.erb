@@ -1,0 +1,31 @@
+<div class="content_head">
+	<%= @company.name.capitalize %>
+	<div id="category_count">
+		<%= pluralize(@user.categories.count,"Task")  %> left 
+	</div>
+</div>
+ 
+<div id="notice_box"><%= flash[:notice] %><br />
+<%= @message %></div>
+
+<div class="add_category">
+	<%= form_for(:categories, :url => { :action => "create", :controller => "categories" }, :remote => true) do |f| %>
+	<div id="category_add_box">
+		<%= f.text_field(:name, :placeholder => "task@category_name") %>
+	</div>
+	<div id="category_add_button">
+		<%= f.submit("Add task") %>
+	</div>
+	<% end %>
+</div>
+
+<div style="clear:both"></div>
+
+<div id="content_body">
+	<%= render :partial => "category_cell", :locales => {:@company => @company} %>
+</div>
+
+<%= subscribe_to "/#{@company.name}/categories/new" %>
+<%= subscribe_to "/#{@company.name}/categories/delete" %>
+<%= subscribe_to "/#{@company.name}/categories/tasks/delete" %>
+<%= subscribe_to "/#{@company.name}/categories/tasks/destroy_multiple" %>

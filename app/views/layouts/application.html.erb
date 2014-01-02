@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TodoApp | <%= @page_title || "Your Task Reminder" %> </title>
+  <%= stylesheet_link_tag    "application", "style", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application","http://code.jquery.com/ui/1.10.3/jquery-ui.js","script", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "private_pub" %>
+  <%= csrf_meta_tags %>
+   <script>
+   
+$(function() {
+    $( "#sortable" ).sortable({
+      revert: true
+    });
+    $( "#draggable" ).draggable({
+      connectToSortable: "#sortable",
+      helper: "clone",
+      revert: "invalid"
+    });
+    $( "ul, li" ).disableSelection();
+  });
+
+</script>
+</head>
+<body>
+
+<div class="header_wrapper">
+	<div class="header">
+		<div class="header_left">The To do App</div>
+		<div class="header_right">
+
+	<% if user_signed_in? %> 
+		<%= link_to @user.name.capitalize, edit_user_registration_path %>@<%= @company.name.capitalize %>
+		<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+	<% else %>
+		<%= link_to "Sign In", new_user_session_path %> |
+		<%= link_to "Register", new_user_registration_path %>
+	<% end %>
+
+		</div>
+	</div> 
+</div>
+
+<div class="content_wrapper">
+	<div class="content">
+		<%= yield %>
+	</div>
+</div>
+
+
+</body>
+</html>

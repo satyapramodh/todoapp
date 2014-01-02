@@ -1,0 +1,5 @@
+<% publish_to "/#{@company.name}/categories/tasks/delete" do %>
+	$('#content_body').html('<%= escape_javascript render :partial => "categories/category_cell", :locales => {:@company => @company} %>');
+	$('#category_count').html(' <%= pluralize(@company.categories.count,"Task")  %> left');
+	$('#task_count').html(' <%= pluralize(@category.tasks.count,"thing")  %> left');
+<% end %>
