@@ -1,12 +1,5 @@
 == README
 
-changes to be made
-
--add faye channel to strike and edit a task and wait for clear
-
--sortable for categories
-
-----
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

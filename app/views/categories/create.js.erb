@@ -3,6 +3,9 @@
 		$('#category_count').html(' <%= pluralize(@company.categories.count,"Task")  %> left');
 <% end %>
 
-$(function (){
-
+$(function() {
+	$('.checkable').on('click',function() {
+				//alert("workin");
+    		$(this).closest('form').submit();
+		});
 });

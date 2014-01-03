@@ -2,3 +2,10 @@
 	$('#content_body').html('<%= escape_javascript render :partial => "category_cell", :locales => {:@company => @company} %>');
 	$('#category_count').html(' <%= pluralize(@company.categories.count,"Task")  %> left');
 <% end %>
+
+$(function() {
+	$('.checkable').on('click',function() {
+				//alert("workin");
+    		$(this).closest('form').submit();
+		});
+});

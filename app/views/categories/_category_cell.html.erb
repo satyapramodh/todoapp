@@ -1,21 +1,22 @@
 <% if @company.categories.blank? %>
 	<p style="text-align: center;">No categories yet. Add one by typing 'task@category_name' in the above text field</p>
 <% else %>
+<div style="text-align: right; width:860px;">
+<%= link_to 'Clear selected', destroy_multiple_tasks_path, :remote => true,  :method => :delete %>
+</div>
 	<% @company.categories.each do |category| %>
-		<div class="category_cell ui-state-default">
-<%= form_for(:tasks, :url => {:action => :destroy_multiple, :controller => :tasks}, :remote => true, :method => :delete) do |f| %>
-		<ul id="sortable"><div class="category_head"><%= category.name %> <%= link_to_submit 'Clear selected' %> <%= link_to "Delete", category, :action => "destroy", :controller => "categories", :method => :delete , :remote => true %> </div>
+		<div class="category_cell">
+
+		<ul class="sortable"><div class="category_head"><%= category.name %>
+		 
+		 <%= link_to "Delete", category, :action => "destroy", :controller => "categories", :method => :delete , :remote => true %> </div>
 			<% category.tasks.each do |task| %>
-				<div class="category_item"><li class="ui-state-default"><span id="task-<%= task.id%>"><%= f.check_box(task.id) %><%= task.name %></span>
-				<%= fields_for(task, :url => {:action => :update, :controller => :tasks}, :remote => true) do |fa| %>
-					<%= fa.hidden_field(:name) %>
-				<% end %>
-				</li></div>
+				<%= render(:partial => "categories/task_cell", :locals => {:task => task}) %>								
 			<% end %>			
 		</ul>
-		<% end %>
+
 			<div id="task_count">
-				<%= pluralize(category.tasks.count,"thing")  %> left 
+				<%= pluralize(Category.joins(:tasks).where(tasks: {status: true}, :id => category.id).count, "thing")  %> left 
 			</div>
 		</div>
 	<% end %>

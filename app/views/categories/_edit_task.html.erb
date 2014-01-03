@@ -1,0 +1,4 @@
+<%= form_for(:tasks, :url => {:action => "rename", :controller => "tasks", :id => @task.id }, :method => "patch", :remote => true) do |f| %>
+
+			<%= f.text_field(:name, {:class => "blurred", :value => "#{@task.name}"}) %>
+		<% end %>

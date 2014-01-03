@@ -1,0 +1,5 @@
+$('#task-<%=@task.id%>').html('<%= escape_javascript render :partial => "categories/edit_task", :locales => {:@task => @task} %>');
+
+	$('.blurred').on('blur',function() {
+    		$(this).closest('form').submit();
+		});

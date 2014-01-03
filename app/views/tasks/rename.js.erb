@@ -1,8 +1,8 @@
-<% publish_to "/#{@company.name}/categories/tasks/delete" do %>
+<% publish_to "/#{@company.name}/categories/tasks/rename" do %>
 	$('#content_body').html('<%= escape_javascript render :partial => "categories/category_cell", :locales => {:@company => @company} %>');
 	$('#category_count').html(' <%= pluralize(@company.categories.count,"Task")  %> left');
-	$('#task_count').html(' <%= pluralize(@category.tasks.count,"thing")  %> left');
 <% end %>
+
 
 $(function() {
 	$('.checkable').on('click',function() {
@@ -10,3 +10,7 @@ $(function() {
     		$(this).closest('form').submit();
 		});
 });
+
+	$('.blurred').on('blur',function() {
+    		$(this).closest('form').submit();
+		});

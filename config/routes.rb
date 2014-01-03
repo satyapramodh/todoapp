@@ -6,6 +6,7 @@ TodoApp::Application.routes.draw do
   resources :tasks, only: [:create, :update, :edit, :destroy] do
     collection do 
       delete 'destroy_multiple'
+      patch 'rename'
     end
   end
 

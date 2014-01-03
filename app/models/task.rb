@@ -6,4 +6,5 @@ validates :name, presence: { message: 'Please provide a task description' }
 
 default_scope order("name ASC")
 
+
 end

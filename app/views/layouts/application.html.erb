@@ -3,24 +3,9 @@
 <head>
   <title>TodoApp | <%= @page_title || "Your Task Reminder" %> </title>
   <%= stylesheet_link_tag    "application", "style", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application","http://code.jquery.com/ui/1.10.3/jquery-ui.js","script", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application","jquery-ui.js","script", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "private_pub" %>
   <%= csrf_meta_tags %>
-   <script>
-   
-$(function() {
-    $( "#sortable" ).sortable({
-      revert: true
-    });
-    $( "#draggable" ).draggable({
-      connectToSortable: "#sortable",
-      helper: "clone",
-      revert: "invalid"
-    });
-    $( "ul, li" ).disableSelection();
-  });
-
-</script>
 </head>
 <body>
 

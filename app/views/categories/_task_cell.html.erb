@@ -1,0 +1,19 @@
+<div class="category_item">
+	<li>
+		
+		<span id="task-<%= task.id%>">
+		<%= form_for(:tasks, :url => {:action => :update, :controller => "tasks", :id => task.id}, :method => "patch", :remote => true) do |f| %>
+			<%= f.check_box(task.id, {:class => "checkable"}) %> 
+			<% if(!task.status) %>
+				<span style="text-decoration: line-through;"><%= task.name %></span>
+				<% else %>
+				<span id="task-<%=task.id%>">
+					<%= link_to "#{task.name}", edit_task_path(task.id), :remote => true %> 
+				</span>
+			<% end %>
+		<% end %>
+			
+		</span>
+
+	</li>
+</div>

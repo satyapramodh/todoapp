@@ -22,6 +22,3 @@
 // 		eval(data);
 // 	})
 // });
-$(function(){
-	$('#task_name').hide();
-});

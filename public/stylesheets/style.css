@@ -256,7 +256,11 @@ input[type=submit]:hover,[type=button]:hover {
 
 .category_item a{
 	color: black;
-	float: right;
+	/*float: right;*/
 	padding-right: 5px;
 }
 
+.blurred{
+	margin: -15px 0 0 -5px;
+
+}
