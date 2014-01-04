@@ -1,7 +1,12 @@
 $(function() {
 
- $( ".category_cell" ).sortable({
+    $( ".category_cell" ).sortable({
       revert: true
+    });
+    $( ".draggable" ).draggable({
+      connectToSortable: ".category_cell",
+      helper: "clone",
+      revert: "invalid"
     });
     $( ".sortable" ).sortable({
       revert: true

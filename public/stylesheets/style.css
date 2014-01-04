@@ -212,9 +212,12 @@ input[type=submit]:hover,[type=button]:hover {
 	margin: 2px;
 	float: left;
 }
+.category_cell li{
+	list-style-type: none;
+}
 
 /*fix this*/
-.category_cell ul{
+.category_cell li ul{
 	margin-left: -30px;
 }
 
@@ -262,5 +265,4 @@ input[type=submit]:hover,[type=button]:hover {
 
 .blurred{
 	margin: -15px 0 0 -5px;
-
 }

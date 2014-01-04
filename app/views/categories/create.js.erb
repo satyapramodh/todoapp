@@ -4,8 +4,28 @@
 <% end %>
 
 $(function() {
-	$('.checkable').on('click',function() {
+
+ $( ".category_cell" ).sortable({
+      revert: true
+    });
+    $( ".sortable" ).sortable({
+      revert: true
+    });
+    $( ".draggable" ).draggable({
+      connectToSortable: ".sortable",
+      helper: "clone",
+      revert: "invalid"
+    });
+    $( "ul, li" ).disableSelection();
+
+
+		$('.checkable').on('click',function() {
 				//alert("workin");
     		$(this).closest('form').submit();
 		});
+
+		$('.blurred').on('blur',function() {
+    		$(this).closest('form').submit();
+		});
+
 });

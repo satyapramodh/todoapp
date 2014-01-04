@@ -20,6 +20,7 @@ def create
 		redirect_to categories_path
 		return
 	end
+	
 	@category_name = @category_name.downcase.delete(" ")
 	@category = @company.categories.find_by(:name => @category_name).nil? ? Category.create(:name=>@category_name) : @company.categories.find_by(:name=>@category_name)
 	@category.company = @company
